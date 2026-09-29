@@ -45,8 +45,6 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
-  text-align: justify;
-  hyphens: auto;
   background: var(--ink);
   color: var(--paper);
   font-family: var(--sans);
@@ -323,6 +321,8 @@ main {
 
 .manifesto-copy p:last-child {
   max-width: 680px;
+  text-align: justify;
+  hyphens: auto;
   color: var(--muted);
   font-size: clamp(1.05rem, 1.55vw, 1.38rem);
   line-height: 1.72;
@@ -443,6 +443,8 @@ main {
   max-width: 860px;
   margin: 0;
   padding: 0;
+  text-align: justify;
+  hyphens: auto;
   color: var(--copy);
   font-size: clamp(1rem, 1.45vw, 1.28rem);
   line-height: 1.72;
@@ -561,6 +563,8 @@ main {
   z-index: 1;
   max-width: 650px;
   margin: 0 0 26px;
+  text-align: justify;
+  hyphens: auto;
   color: var(--copy-soft);
   font-size: 1rem;
 }
