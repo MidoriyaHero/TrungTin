@@ -45,6 +45,8 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
+  text-align: justify;
+  hyphens: auto;
   background: var(--ink);
   color: var(--paper);
   font-family: var(--sans);
@@ -261,24 +263,21 @@ main {
   line-height: 0.72;
   letter-spacing: -0.045em;
   word-spacing: 0.025em;
+  text-align: left;
   text-wrap: balance;
 }
 
 .hero-statement {
   display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 48px;
-  width: auto;
-  max-width: 1040px;
+  justify-content: flex-end;
   margin-top: clamp(42px, 8vh, 90px);
-  margin-left: clamp(0px, 18vw, 260px);
 }
 
 .hero-statement > p {
-  max-width: 650px;
+  width: min(100%, 50%);
   margin: 0;
-  font-size: clamp(1.45rem, 3vw, 3rem);
+  text-align: justify;
+  font-size: clamp(1.45rem, 2.4vw, 2.35rem);
   line-height: 1.18;
   letter-spacing: -0.006em;
   word-spacing: 0.07em;
@@ -287,7 +286,7 @@ main {
 .scroll-cue {
   position: absolute;
   bottom: 38px;
-  left: clamp(20px, 4vw, 64px);
+  left: clamp(20px, 7vw, 112px);
   display: flex;
   gap: 18px;
   color: var(--muted);
@@ -717,9 +716,8 @@ footer {
     line-height: 0.79;
   }
 
-  .hero-statement {
-    display: block;
-    margin-left: 0;
+  .hero-statement > p {
+    width: 100%;
   }
 
   .manifesto,
