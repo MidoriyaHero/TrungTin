@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Trung Tin Bui — AI engineer building production RAG, agent, vision, and retrieval systems.">
+  <meta name="theme-color" content="#03181a">
+  <meta name="color-scheme" content="dark light">
+  <script>
+    const storedThemePreference = localStorage.getItem("portfolio-theme");
+    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    document.documentElement.dataset.theme = storedThemePreference || (systemPrefersLight ? "light" : "dark");
+    document.querySelector('meta[name="theme-color"]').content =
+      document.documentElement.dataset.theme === "light" ? "#f1fff8" : "#03181a";
+  </script>
+  <title>Trung Tin Bui — AI Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <canvas id="liquid" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Back to top">
+      <span>Bùi Trung Tín</span>
+      <small>Portfolio</small>
+    </a>
+    <nav class="header-actions" aria-label="Language and résumé">
+      <div class="language-switch" role="group" aria-label="Language">
+        <button class="language-button is-active" type="button" data-language="en" aria-pressed="true">EN</button>
+        <span aria-hidden="true">/</span>
+        <button class="language-button" type="button" data-language="vi" aria-pressed="false">VI</button>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"/></svg>
+      </button>
+      <a class="download-button" id="download-cv" href="cv/Bui-Trung-Tin-EN.pdf" download>
+        <span data-copy="download">Download CV</span>
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2v10m0 0 4-4m-4 4L6 8M3 15v2h14v-2"/></svg>
+      </a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="hero-location" data-copy="location">Ho Chi Minh City · Vietnam</p>
+      <h1 id="hero-title">Bùi<br>Trung Tín</h1>
+      <div class="hero-statement">
+        <p data-copy="hero">I turn difficult AI research into systems people can actually use.</p>
+        <span class="availability"><i></i><span data-copy="availability">AI Engineer · Open to ambitious work</span></span>
+      </div>
+      <a class="scroll-cue" href="#experience">
+        <span data-copy="explore">Explore selected work</span>
+        <span aria-hidden="true">↓</span>
+      </a>
+    </section>
+
+    <section class="manifesto" aria-label="Profile">
+      <div class="manifesto-copy">
+        <p data-copy="introLead">My work sits where language, vision, and production infrastructure meet.</p>
+        <p data-copy="introBody">I build retrieval systems, AI agents, document intelligence, and computer vision pipelines — then make them reliable enough for real operations.</p>
+      </div>
+      <div class="manifesto-facts">
+        <span><strong>2.5+</strong><small data-copy="years">years building AI systems</small></span>
+        <span><strong>3×</strong><small data-copy="throughput">higher inference throughput</small></span>
+        <span><strong>90%</strong><small data-copy="ocr">handwriting OCR accuracy</small></span>
+      </div>
+    </section>
+
+    <section class="work-section" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading">
+        <p data-copy="experienceIndex">Experience / 2021—Now</p>
+        <h2 id="experience-title" data-copy="experience">Systems shipped,<br>not just studied.</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="work-item" data-liquid="#38E8EE">
+          <div class="work-meta"><time data-copy="loginexDate">2026—Now</time><span>LOGINEX Technology</span></div>
+          <div class="work-copy">
+            <h3 data-copy="loginexRole">AI Engineer</h3>
+            <ul class="work-details">
+              <li data-copy="loginexPoint1">Engineering a license-plate OCR pipeline that turns vehicle imagery into structured plate data for operational workflows.</li>
+              <li data-copy="loginexPoint2">Building an enterprise RAG system with RBAC and ABAC so retrieval respects user roles, resource attributes, and business context.</li>
+            </ul>
+            <ul class="tags"><li>License Plate OCR</li><li>Enterprise RAG</li><li>RBAC</li><li>ABAC</li></ul>
+          </div>
+        </article>
+
+        <article class="work-item" data-liquid="#B8FF8A">
+          <div class="work-meta"><time>2025—2026</time><span>viAct</span></div>
+          <div class="work-copy">
+            <h3 data-copy="viactRole">Gen AI Engineer</h3>
+            <ul class="work-details">
+              <li data-copy="viactPoint1">Built Slack and Jira agents with long-term memory and human approval, cutting task creation time by about 70%.</li>
+              <li data-copy="viactPoint2">Delivered natural-language CCTV search, enterprise RAG, WhisperX transcription, and handwriting OCR reaching about 90% accuracy on complex forms.</li>
+              <li data-copy="viactPoint3">Served live RTSP and vision workloads through Ray Serve; quantization and vLLM reduced GPU memory by about 60% while tripling throughput.</li>
+            </ul>
+            <ul class="tags"><li>RAG</li><li>Agents</li><li>Ray Serve</li><li>FastAPI</li><li>Vision AI</li></ul>
+          </div>
+        </article>
+
+        <article class="work-item" data-liquid="#6EF5D2">
+          <div class="work-meta"><time data-copy="grantDate">Sep—Oct 2025</time><span>GrantForward · Cazoodle</span></div>
+          <div class="work-copy">
+            <h3 data-copy="grantRole">Research Software Engineer</h3>
+            <ul class="work-details">
+              <li data-copy="grantPoint1">Architected a research discovery prototype that indexed academic corpora and combined vector retrieval with RAG.</li>
+              <li data-copy="grantPoint2">Evaluated semantic results against keyword baselines and documented the trade-offs for a distributed product team.</li>
+            </ul>
+            <ul class="tags"><li>Semantic Search</li><li>Vector Retrieval</li><li>RAG</li></ul>
+          </div>
+        </article>
+
+        <article class="work-item" data-liquid="#58DDE3">
+          <div class="work-meta"><time>2025</time><span>FPT Digital</span></div>
+          <div class="work-copy">
+            <h3 data-copy="fptRole">AI Engineer Intern</h3>
+            <ul class="work-details">
+              <li data-copy="fptPoint1">Translated enterprise requirements into an internal RAG assistant for staff knowledge retrieval.</li>
+              <li data-copy="fptPoint2">Prototyped AI workflows with stakeholders and iterated on answer quality from operational feedback.</li>
+            </ul>
+            <ul class="tags"><li>Enterprise RAG</li><li>Prototyping</li><li>Stakeholders</li></ul>
+          </div>
+        </article>
+
+        <article class="work-item" data-liquid="#A3F58A">
+          <div class="work-meta"><time data-copy="ivsDate">Jul 2023—Aug 2024</time><span>IVS Joint Stock Company</span></div>
+          <div class="work-copy">
+            <h3 data-copy="ivsRole">AI Engineer Intern</h3>
+            <ul class="work-details">
+              <li data-copy="ivsPoint1">Prepared large Vietnamese medical datasets for model training and evaluation.</li>
+              <li data-copy="ivsPoint2">Fine-tuned Vistral, PhoGPT, Llama 2, and SeaLLM with LoRA/QLoRA for a specialized medical assistant.</li>
+              <li data-copy="ivsPoint3">Trained and evaluated a BERT classifier that achieved 83% accuracy across 23 medical classes.</li>
+            </ul>
+            <ul class="tags"><li>LLM Fine-tuning</li><li>LoRA / QLoRA</li><li>Medical NLP</li><li>BERT</li></ul>
+          </div>
+        </article>
+
+        <article class="work-item" data-liquid="#86F5B0">
+          <div class="work-meta"><time data-copy="brainDate">Aug 2021—Feb 2025</time><span>Brain AI Lab 513</span></div>
+          <div class="work-copy">
+            <h3 data-copy="brainRole">Research Assistant · Teaching Assistant</h3>
+            <ul class="work-details">
+              <li data-copy="brainPoint1">Applied U-Net, ResNet-50, VGG-16/19, CNN, and YOLOv5 to medical image segmentation and classification, reaching 97% accuracy on skin-disease classification.</li>
+              <li data-copy="brainPoint2">Analyzed brain MRI images for Alzheimer’s classification and built a LangChain/Elasticsearch mental-health RAG system.</li>
+              <li data-copy="brainPoint3">Mentored more than 50 biomedical engineering students in practical AI for Healthcare.</li>
+            </ul>
+            <ul class="tags"><li>Medical Vision</li><li>RAG</li><li>PyTorch</li><li>Teaching</li></ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="projects-section" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading">
+        <p data-copy="projectsIndex">Selected projects / Public work</p>
+        <h2 id="projects-title" data-copy="projects">Research with<br>a working interface.</h2>
+      </div>
+      <div class="project-grid">
+        <article class="project project-featured">
+          <span class="project-number">01</span>
+          <h3 data-copy="llamaTitle">Efficient Medical LLM Fine-Tuning</h3>
+          <p data-copy="llamaText">Optimized LLaMa2-7B medical question answering with QLoRA for resource-constrained training. The resulting model achieved a BERTScore F1 of 0.841, close to Gemini at 0.849 and GPT at 0.855, with a smaller model and faster fine-tuning.</p>
+          <div class="project-actions">
+            <a href="https://link.springer.com/chapter/10.1007/978-3-031-90194-2_34" target="_blank" rel="noreferrer" data-copy="paperLink">Paper ↗</a>
+            <a href="https://github.com/MidoriyaHero/Fine-tune-LLaMa2-LORA" target="_blank" rel="noreferrer" data-copy="sourceLink">Source ↗</a>
+          </div>
+        </article>
+        <article class="project">
+          <span class="project-number">02</span>
+          <h3 data-copy="gasTitle">Gas Store Operations ERP</h3>
+          <p data-copy="gasText">Shipped a three-client operations system: FastAPI and PostgreSQL, a React admin/staff web app, and an offline-first Expo Android client. Implemented dual-mode JWT auth, backend RBAC, idempotent SQLite outbox sync, order-level debt, inventory, cylinder audits, voice notes, Docker Compose, and CI quality gates.</p>
+          <div class="project-actions">
+            <a href="https://www.youtube.com/watch?v=k7-D3tZWkus" target="_blank" rel="noreferrer" data-copy="demoLink">Demo ↗</a>
+            <a href="https://github.com/MidoriyaHero/gas-store-app" target="_blank" rel="noreferrer" data-copy="sourceLink">Source ↗</a>
+          </div>
+        </article>
+        <article class="project">
+          <span class="project-number">03</span>
+          <h3 data-copy="mentalTitle">Mental Health RAG</h3>
+          <p data-copy="mentalText">Created a full-stack mental-health knowledge experience using React, LangChain, FastAPI, and Elasticsearch for retrieval-backed conversations.</p>
+          <div class="project-actions">
+            <a href="https://youtu.be/9CKTYfd86LU?si=QXsU0AEUnj4gl_Vo" target="_blank" rel="noreferrer" data-copy="demoLink">Demo ↗</a>
+            <a href="https://github.com/MidoriyaHero/MH-Website-React-LangChain-ElasticSearch" target="_blank" rel="noreferrer" data-copy="sourceLink">Source ↗</a>
+          </div>
+        </article>
+        <article class="project">
+          <span class="project-number">04</span>
+          <h3 data-copy="hicardTitle">HI-CARD</h3>
+          <p data-copy="hicardText">Developed a biomedical engineering capstone that connected a Python backend and companion information interface around a practical healthcare use case.</p>
+          <div class="project-actions">
+            <a href="https://github.com/MidoriyaHero/HI-CARD" target="_blank" rel="noreferrer" data-copy="sourceLink">Source ↗</a>
+          </div>
+        </article>
+        <article class="project project-publication">
+          <span class="project-number">05</span>
+          <h3>VHCor</h3>
+          <p data-copy="vhcorText">Co-authored a comprehensive Vietnamese healthcare corpus for medical department recognition, presented at the 2023 International Conference on Health Science and Technology.</p>
+          <div class="project-actions">
+            <a href="https://ieeexplore.ieee.org/document/10565358" target="_blank" rel="noreferrer" data-copy="paperLink">Paper ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="capabilities" aria-labelledby="capabilities-title">
+      <h2 id="capabilities-title" data-copy="capabilities">What I build with</h2>
+      <div class="capability-list">
+        <p><span data-copy="capAi">Applied AI</span><strong>RAG · Agents · LLM fine-tuning · OCR · WhisperX · Evaluation</strong></p>
+        <p><span data-copy="capVision">Vision</span><strong>YOLO · SAM · Qwen-VL · OpenCV · RTSP pipelines</strong></p>
+        <p><span data-copy="capSystems">Systems</span><strong>Python · FastAPI · React · PostgreSQL · Elasticsearch · Celery</strong></p>
+        <p><span data-copy="capInfra">Infrastructure</span><strong>Ray Serve · vLLM · Docker · ONNX · ChromaDB</strong></p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <p data-copy="contactLabel">Have a hard AI problem?</p>
+      <h2 data-copy="contactTitle">Let’s make it<br>work in the world.</h2>
+      <a class="email-link" href="mailto:work.trungtin@gmail.com">work.trungtin@gmail.com</a>
+      <div class="social-row">
+        <a href="https://github.com/MidoriyaHero" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/t%C3%ADn-trung-13b706210/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> Trung Tin Bui</span>
+    <span data-copy="footer">Designed around language, vision, and motion.</span>
+  </footer>
+
+  <a class="back-to-top" id="back-to-top" href="#top" aria-label="Back to top" aria-hidden="true" tabindex="-1">
+    <span aria-hidden="true">↑</span>
+  </a>
+
+  <script src="assets/copy.js"></script>
+  <script src="assets/fluid.js"></script>
+</body>
+</html>

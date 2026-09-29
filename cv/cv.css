@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap");
+
+@page {
+  size: A4;
+  margin: 14mm 16mm 14mm;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #e8e8e8;
+}
+
+body {
+  width: 210mm;
+  margin: 20px auto;
+  padding: 14mm 16mm;
+  background: white;
+  color: #111;
+  font-family: "Source Serif 4", "Times New Roman", serif;
+  font-size: 9.65pt;
+  line-height: 1.32;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 22pt;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 5px 0 3px;
+  font-size: 11pt;
+  font-weight: 600;
+}
+
+.contact {
+  margin: 0;
+  font-size: 8.7pt;
+}
+
+section {
+  break-inside: auto;
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 13px 0 6px;
+  font-size: 10.4pt;
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+h2::after {
+  height: 1px;
+  flex: 1;
+  background: #222;
+  content: "";
+}
+
+.entry {
+  margin-top: 7px;
+  break-inside: avoid;
+}
+
+.entry-heading,
+.entry-subheading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+}
+
+.entry-heading {
+  font-weight: 700;
+}
+
+.entry-subheading {
+  margin-top: 1px;
+  font-style: italic;
+}
+
+.location,
+time {
+  text-align: right;
+  white-space: nowrap;
+}
+
+ul {
+  margin: 3px 0 0 17px;
+  padding: 0;
+}
+
+li {
+  margin: 1.5px 0;
+  padding-left: 1px;
+}
+
+.compact {
+  margin-top: 4px;
+}
+
+.compact p {
+  margin: 2px 0;
+}
+
+.project-title {
+  font-weight: 700;
+}
+
+.skills p {
+  margin: 2px 0;
+}
+
+.skills strong {
+  font-weight: 700;
+}
+
+.screen-note {
+  margin: 14px auto 0;
+  color: #555;
+  font-family: system-ui, sans-serif;
+  font-size: 8pt;
+  text-align: center;
+}
+
+@media print {
+  html,
+  body {
+    background: white;
+  }
+
+  body {
+    width: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  .screen-note {
+    display: none;
+  }
+}
