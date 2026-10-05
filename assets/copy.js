@@ -5,6 +5,12 @@ const copy = {
     switchToLight: "Switch to light theme",
     switchToDark: "Switch to dark theme",
     backToTop: "Back to top",
+    tocIntro: "Intro",
+    tocExperience: "Experience",
+    tocProjects: "Projects",
+    tocDemos: "Demos",
+    tocCapabilities: "Skills",
+    tocContact: "Contact",
     location: "Ho Chi Minh City · Vietnam",
     hero: "I turn difficult AI research into systems people can actually use.",
     explore: "Explore selected work",
@@ -79,6 +85,12 @@ const copy = {
     switchToLight: "Chuyển sang giao diện sáng",
     switchToDark: "Chuyển sang giao diện tối",
     backToTop: "Về đầu trang",
+    tocIntro: "Giới thiệu",
+    tocExperience: "Kinh nghiệm",
+    tocProjects: "Dự án",
+    tocDemos: "Demo",
+    tocCapabilities: "Kỹ năng",
+    tocContact: "Liên hệ",
     location: "Thành phố Hồ Chí Minh · Việt Nam",
     hero: "Tôi biến nghiên cứu AI phức tạp thành hệ thống mà con người thực sự sử dụng được.",
     explore: "Xem những công việc tiêu biểu",
@@ -153,6 +165,8 @@ const languageButtons = document.querySelectorAll("[data-language]");
 const downloadLink = document.querySelector("#download-cv");
 const themeButton = document.querySelector("#theme-toggle");
 const backToTop = document.querySelector("#back-to-top");
+const tocLinks = [...document.querySelectorAll("#toc a")];
+const tocSections = tocLinks.map((link) => document.querySelector(link.getAttribute("href")));
 const colorScheme = window.matchMedia("(prefers-color-scheme: light)");
 
 /** Applies translated interface copy and its matching downloadable résumé. */
@@ -221,8 +235,22 @@ const savedTheme = localStorage.getItem("portfolio-theme");
 setTheme(savedTheme || (colorScheme.matches ? "light" : "dark"), Boolean(savedTheme));
 setLanguage(savedLanguage || browserLanguage);
 document.querySelector("#year").textContent = new Date().getFullYear();
+/** Highlights the table-of-contents entry for the section currently in view. */
+function updateToc() {
+  const marker = window.scrollY + window.innerHeight * 0.35;
+  let active = tocSections[0];
+  tocSections.forEach((section) => {
+    if (section && section.offsetTop <= marker) active = section;
+  });
+  tocLinks.forEach((link) => {
+    link.classList.toggle("is-active", link.getAttribute("href") === `#${active.id}`);
+  });
+}
+
 window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
+window.addEventListener("scroll", updateToc, { passive: true });
 updateBackToTopVisibility();
+updateToc();
 
 colorScheme.addEventListener("change", (event) => {
   if (!localStorage.getItem("portfolio-theme")) setTheme(event.matches ? "light" : "dark", false);
