@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+tmp/
+
+DocMind-Ingest-showreel/
+LeadScout-Outreach-showreel/
+SiteSense-Autopilot-demo/
+SiteSense-Reporter-showreel/
