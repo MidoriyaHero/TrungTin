@@ -253,17 +253,24 @@ function updateToc() {
   });
 }
 
-/** Keeps the arc open after a tap, since touch devices have no hover. */
-tocToggle.addEventListener("click", () => {
-  const isOpen = toc.classList.toggle("is-open");
+/** Opens or closes the arc and keeps the toggle state in sync. */
+function setTocOpen(isOpen) {
+  toc.classList.toggle("is-open", isOpen);
   tocToggle.setAttribute("aria-expanded", String(isOpen));
+}
+
+toc.addEventListener("mouseenter", () => setTocOpen(true));
+
+tocToggle.addEventListener("click", () => {
+  setTocOpen(!toc.classList.contains("is-open"));
 });
 
 tocLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    toc.classList.remove("is-open");
-    tocToggle.setAttribute("aria-expanded", "false");
-  });
+  link.addEventListener("click", () => setTocOpen(false));
+});
+
+document.addEventListener("click", (event) => {
+  if (!toc.contains(event.target)) setTocOpen(false);
 });
 
 window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
