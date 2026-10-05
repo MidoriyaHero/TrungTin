@@ -21,12 +21,17 @@
 </head>
 <body>
   <nav class="toc" id="toc" aria-label="Sections">
-    <a href="#top" data-copy="tocIntro">Intro</a>
-    <a href="#demos" data-copy="tocDemos">Demos</a>
-    <a href="#experience" data-copy="tocExperience">Experience</a>
-    <a href="#projects" data-copy="tocProjects">Projects</a>
-    <a href="#capabilities" data-copy="tocCapabilities">Skills</a>
-    <a href="#contact" data-copy="tocContact">Contact</a>
+    <button class="toc-toggle" type="button" aria-expanded="false" aria-controls="toc-menu" data-copy-label="tocLabel">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="toc-menu" id="toc-menu">
+      <a href="#top" data-copy="tocIntro" style="--i: 0">Intro</a>
+      <a href="#demos" data-copy="tocDemos" style="--i: 1">Demos</a>
+      <a href="#experience" data-copy="tocExperience" style="--i: 2">Experience</a>
+      <a href="#projects" data-copy="tocProjects" style="--i: 3">Projects</a>
+      <a href="#capabilities" data-copy="tocCapabilities" style="--i: 4">Skills</a>
+      <a href="#contact" data-copy="tocContact" style="--i: 5">Contact</a>
+    </div>
   </nav>
 
   <canvas id="liquid" aria-hidden="true"></canvas>

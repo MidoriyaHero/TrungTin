@@ -107,27 +107,79 @@ a {
 .toc {
   position: fixed;
   top: 50%;
-  right: clamp(16px, 2vw, 36px);
+  right: clamp(20px, 7vw, 112px);
   z-index: 18;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  width: 48px;
+  height: 48px;
   transform: translateY(-50%);
 }
 
-.toc a {
-  padding: 7px 14px;
-  border-radius: 999px;
-  color: var(--muted);
-  font-size: 1rem;
-  text-align: right;
-  transition: color 180ms ease, background 180ms ease;
+.toc-toggle {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-content: center;
+  gap: 5px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--control-bg);
+  cursor: pointer;
+  backdrop-filter: blur(14px);
 }
 
-.toc a:hover,
-.toc a.is-active {
-  color: var(--paper);
+.toc-toggle span {
+  width: 18px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: var(--paper);
+}
+
+.toc.is-open .toc-toggle {
+  border-color: var(--green);
+}
+
+.toc-menu {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  width: 0;
+  height: 0;
+}
+
+.toc-menu a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
   background: var(--control-bg);
+  color: var(--muted);
+  font-size: 1rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  backdrop-filter: blur(14px);
+  transform: translate(50%, -50%) scale(0.6);
+  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 200ms ease, color 180ms ease;
+  transition-delay: calc(var(--i) * 25ms);
+}
+
+/* Six items spread across the left half of a circle, opening toward the page. */
+.toc.is-open .toc-menu a,
+.toc:hover .toc-menu a {
+  opacity: 1;
+  pointer-events: auto;
+  transform: rotate(calc(-150deg + var(--i) * 24deg)) translateX(-168px) rotate(calc(150deg - var(--i) * 24deg));
+}
+
+.toc-menu a:hover,
+.toc-menu a.is-active {
+  border-color: var(--green);
+  color: var(--paper);
 }
 
 .site-header {
@@ -773,29 +825,14 @@ footer {
   color: var(--green);
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 800px) {
   .toc {
-    top: auto;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 0;
-    padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
-    transform: none;
-    border-top: 1px solid var(--line);
-    background: var(--ink);
+    right: 20px;
   }
 
-  .toc a {
-    padding: 8px 6px;
-    font-size: 0.9rem;
-    text-align: center;
-  }
-
-  .back-to-top {
-    bottom: 72px;
+  .toc.is-open .toc-menu a,
+  .toc:hover .toc-menu a {
+    transform: rotate(calc(-150deg + var(--i) * 24deg)) translateX(-132px) rotate(calc(150deg - var(--i) * 24deg));
   }
 }
 

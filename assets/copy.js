@@ -5,6 +5,7 @@ const copy = {
     switchToLight: "Switch to light theme",
     switchToDark: "Switch to dark theme",
     backToTop: "Back to top",
+    tocLabel: "Sections",
     tocIntro: "Intro",
     tocExperience: "Experience",
     tocProjects: "Projects",
@@ -85,6 +86,7 @@ const copy = {
     switchToLight: "Chuyển sang giao diện sáng",
     switchToDark: "Chuyển sang giao diện tối",
     backToTop: "Về đầu trang",
+    tocLabel: "Mục lục",
     tocIntro: "Giới thiệu",
     tocExperience: "Kinh nghiệm",
     tocProjects: "Dự án",
@@ -165,6 +167,8 @@ const languageButtons = document.querySelectorAll("[data-language]");
 const downloadLink = document.querySelector("#download-cv");
 const themeButton = document.querySelector("#theme-toggle");
 const backToTop = document.querySelector("#back-to-top");
+const toc = document.querySelector("#toc");
+const tocToggle = document.querySelector(".toc-toggle");
 const tocLinks = [...document.querySelectorAll("#toc a")];
 const tocSections = tocLinks.map((link) => document.querySelector(link.getAttribute("href")));
 const colorScheme = window.matchMedia("(prefers-color-scheme: light)");
@@ -187,6 +191,8 @@ function setLanguage(language) {
   });
 
   const suffix = language === "vi" ? "VI" : "EN";
+  tocToggle.setAttribute("aria-label", selectedCopy.tocLabel);
+  tocToggle.setAttribute("title", selectedCopy.tocLabel);
   downloadLink.href = `cv/Bui-Trung-Tin-${suffix}.pdf`;
   downloadLink.setAttribute("download", `Bui-Trung-Tin-${suffix}.pdf`);
   backToTop.setAttribute("aria-label", selectedCopy.backToTop);
@@ -246,6 +252,19 @@ function updateToc() {
     link.classList.toggle("is-active", link.getAttribute("href") === `#${active.id}`);
   });
 }
+
+/** Keeps the arc open after a tap, since touch devices have no hover. */
+tocToggle.addEventListener("click", () => {
+  const isOpen = toc.classList.toggle("is-open");
+  tocToggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+tocLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    toc.classList.remove("is-open");
+    tocToggle.setAttribute("aria-expanded", "false");
+  });
+});
 
 window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
 window.addEventListener("scroll", updateToc, { passive: true });
